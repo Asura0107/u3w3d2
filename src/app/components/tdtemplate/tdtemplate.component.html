@@ -1,0 +1,35 @@
+<form class="mt-5" #form="ngForm" (ngSubmit)="submit(form)">
+  <!-- il  #userInfo="ngModelGroup" serve a specificare che nel caso ci sono due ngmdodelgroup, io voglio prendere solo questo -->
+  <div ngModelGroup="userInfo" id="userInfo" #userInfo="ngModelGroup">
+    <div class="row">
+      <div class="col-4 mx-auto">
+        <div class="mb-3">
+          <label for="exampleInputEmail1" class="form-label">Username</label>
+          <input
+            type="text"
+            class="form-control"
+            id="username"
+            aria-describedby="emailHelp"
+            [(ngModel)]="user.username"
+            name="username"
+          />
+          <div id="emailHelp" class="form-text">
+            We'll never share your email with anyone else.
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="exampleInputPassword1" class="form-label">Password</label>
+          <input
+            type="password"
+            class="form-control"
+            id="exampleInputPassword1"
+            [(ngModel)]="user.password"
+            name="password"
+          />
+        </div>
+
+        <button type="submit" class="btn btn-primary">Submit</button>
+      </div>
+    </div>
+  </div>
+</form>
