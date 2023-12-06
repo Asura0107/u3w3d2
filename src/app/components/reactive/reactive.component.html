@@ -1,1 +1,41 @@
-<p>reactive works!</p>
+<form [formGroup]="form" (ngSubmit)="Submit()">
+  <div class="form-control">
+    <div formGroupName="userInfo">
+      <label for="Nome">Nome: </label>
+      <input id="Nome" type="text" formControlName="Nome" />
+
+      <label for="Cognome">cognome: </label>
+      <input id="Cognome" type="text" formControlName="Cognome" />
+
+      <label for="username">username: </label>
+      <input id="username" type="text" formControlName="username" />
+    </div>
+
+    <div formGroupName="secret">
+      <label for="password">password: </label>
+      <input id="password" type="text" formControlName="password" />
+
+      <label for="ripeti">ripeti password: </label>
+      <input id="ripeti" type="text" formControlName="rifai" />
+    </div>
+
+    <div class="radio" *ngFor="let genere of generi">
+      <label>
+        <input
+          type="radio"
+          id="genere"
+          formControlName="genere"
+          [value]="genere"
+        />{{ genere }}
+      </label>
+    </div>
+
+    <label for="immagine">immagine profilo: </label>
+    <input id="immagine" type="text" formControlName="profilo" />
+
+    <label for="biografia">biografia: </label>
+    <input id="biografia" type="text" formControlName="biografia" />
+
+    <button type="submit" [disabled]="!form.valid">Submit</button>
+  </div>
+</form>
